@@ -16,10 +16,13 @@ Create instances of each object defined to prove that your object model works.
 function Photo(name, location){
   this.name = name;
   this.location = location;
+  this.info = function() {
+    console.log(this.name + " : " + this.location);
+  }
 }
 
 function Album() {
-  var allPhotos = [];
+  this.allPhotos = new Array();
 }
 
 Album.prototype.add = function(Photo) {
@@ -27,17 +30,15 @@ Album.prototype.add = function(Photo) {
 }
 
 Album.prototype.display = function() {
-  for (i = 0; i < this.list.length; i++) {
-    console.log(allPhotos[i]);
+  for (i = 0; i < this.allPhotos.length; i++) {
+    this.allPhotos[i].info();
   }
 }
 
 let pic1 = new Photo("thur", "park");
 let pic2 = new Photo("fri", "school");
-console.log(pic1.name + " : " + pic1.location);
-console.log(pic2.name + " : " + pic2.location);
 
 let album1 = new Album();
 album1.add(pic1);
 album1.add(pic2);
-album1.display;
+album1.display();
