@@ -23,7 +23,7 @@ function Album() {
 }
 
 Album.prototype.add = function(Photo) {
-  this.allPhotos.push(aPic);
+  this.allPhotos.push(Photo);
 }
 
 Album.prototype.display = function() {
