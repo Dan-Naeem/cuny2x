@@ -7,6 +7,7 @@
   padding: 1em 0em;
   display: flex;
   flex-direction: column;
+  margin: 0em;
 }
 
 .jumbotron * {
@@ -18,6 +19,7 @@
 }
 
 .navigation {
+  padding: 1em;
   background-color: darkslategrey;
 }
 
@@ -44,10 +46,10 @@ a:visited {
   -ms-flex-direction: row;
   flex-direction: row;
   flex-wrap: wrap;
+  font-size: 1.5em;
 }
 
 .box {
-  font-size: 2em;
   width: 50%;
   min-width: 50%;
   max-width: 50%;
