@@ -1,4 +1,21 @@
-.header{
-  border: 5px solid red;
-  background-color: orange;
+.jumbotron {
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: column;
+}
+.jumbotron * {
+  padding: 10px;
+}
+
+.navigation {
+  background-color: darkslategrey;
+}
+
+a {
+  font-size: 1.5em;
+  color: white;
+}
+
+a:hover {
+    color: white;
 }
