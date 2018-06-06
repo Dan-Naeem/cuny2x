@@ -32,7 +32,23 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
+// text field
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: ""
+    };
+  }
+  handleChange() {
+
+  }
+
   render() {
     return (
       <div style={styles.app}>
@@ -48,7 +64,20 @@ class App extends Component {
         <div style={styles.main}>
 
           <div style={styles.left}>
-            <Card></Card>
+            <Card style={styles.card}>
+              <FormControl style={styles.card}>
+
+                <Input style={styles.textField} id="name-simple" value={this.state.name} onChange={this.handleChange} />
+                <FormHelperText id="name-helper-text">Name</FormHelperText>
+
+                <Input style={styles.textField} id="name-helper" value={this.state.name} onChange={this.handleChange} />
+                <FormHelperText id="name-helper-text">Some important helper text</FormHelperText>
+
+                <Input style={styles.textField} id="name-disabled" value={this.state.name} onChange={this.handleChange} />
+                <FormHelperText>Disabled</FormHelperText>
+
+              </FormControl>
+            </Card>
           </div>
 
           <div style={styles.right}>

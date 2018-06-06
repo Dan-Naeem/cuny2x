@@ -48,6 +48,13 @@ const styles = {
     padding: '.5em',
     margin: '.5em',
   },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  textField: {
+    width: '100%',
+  },
 };
 
 export {
