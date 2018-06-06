@@ -25,25 +25,27 @@ const styles = {
   main: {
     backgroundColor: colorway.background,
     width: '100%',
-    marginTop: '1em',
-    marginBottom: '1em',
+    margin: '.5em',
+    padding: '.5em',
     display: 'flex',
     flexDirection: 'row',
   },
   left: {
-    width: '50%',
+    width: '40%',
     height: 'auto',
+    padding: '.5em',
   },
   right: {
-    width: '50%',
+    width: '60%',
     height: 'auto',
+    padding: '.5em',
   },
   card: {
     backgroundColor: colorway.two,
     fontSize: '1em',
     width: '100%',
     height: 'auto',
-    padding: '1em',
+    padding: '.5em',
     margin: '.5em',
   },
 };

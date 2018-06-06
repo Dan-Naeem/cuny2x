@@ -52,7 +52,7 @@ class App extends Component {
           </div>
 
           <div style={styles.right}>
-            <Card >
+            <Card style={styles.card}>
               <CardHeader
                 avatar={
                   <Avatar aria-label="Recipe" >
