@@ -8,14 +8,24 @@ class App extends Component {
     this.state = {
       name: "",
       listOfNames: [],
+      delName: "",
     }
   }
+
   handleChange(event) {
     const name = event.target.value;
     this.setState({
       name
     })
     console.log('this is the name in handleChange: ', this.state.name)
+  }
+
+  handleChangeDelName(event) {
+    const delName = event.target.value;
+    this.setState({
+      delName
+    })
+    console.log("delName: ", this.state.delName)
   }
 
   handleSubmit(event) {
@@ -29,6 +39,29 @@ class App extends Component {
     let text = this.refs.text;
     text.value = "";
     console.log('new list of name: ', this.state.listOfNames)
+  }
+
+  handleDelete(event) {
+    event.preventDefault();
+    const delName = this.state.delName;
+    console.log("gonna del: ", delName);
+    //create an empty array
+    let updatedListOfNames = [];
+    //go thru current array
+    for (let i = 0; i < this.state.listOfNames.length; i++ ) {
+      //if name matches up, dont add
+      if (delName === this.state.listOfNames[i]){
+        //skip over
+      }
+      //else push onto updatedListOfNames
+      else {
+        updatedListOfNames.push(this.state.listOfNames[i]);
+      }
+    }//end for
+    //overwrite listOfNames
+    this.setState({
+      listOfNames: updatedListOfNames,
+    })
   }
 
   render() {
@@ -47,6 +80,16 @@ class App extends Component {
             <input type="text" name="name" ref="text" onChange={this.handleChange.bind(this)} />
           </label>
           <input type="submit" value="Submit" />
+        </form>
+
+        <br />
+
+        <form onSubmit={this.handleDelete.bind(this)} >
+          <label>
+            Delete:
+            <input type="text" name="name" onChange={this.handleChangeDelName.bind(this)} ></input>
+          </label>
+          <input type="submit" value="submit" ></input>
         </form>
 
         <ul>
