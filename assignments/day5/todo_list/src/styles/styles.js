@@ -1,9 +1,9 @@
 //default colorway
 const colorway = {
-  one: '#DAA44E',
-  two: '#FFF2AA',
+  one: '#B38353',
+  two: '#FFE0C2',
   three: '',
-  background: '#FECE83',
+  background: 'white',
 };
 
 const styles = {
