@@ -6,28 +6,51 @@ const colorway = {
   background: '#56707c',
 };
 
-const appStyles = {
+const styles = {
   app: {
-    textAlign: "center",
-  },
-  appLogo: {
-    height: "80px",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '.5em',
+    fontSize: '1em',
+    boxSizing: 'border-box',
   },
   appHeader: {
-    backgroundColor: "#222",
-    height: "150px",
-    padding: "20px",
+    backgroundColor: "blue",
     color: "white",
   },
   appTitle: {
     fontSize: "1.5em",
   },
-  appIntro: {
-    fontSize: "large",
+  main: {
+    width: '100%',
+    marginTop: '1em',
+    marginBottom: '1em',
+    display: 'flex',
+    flexDirection: 'row',
+
   },
+  edit: {
+    width: '40%',
+    textAlign: 'center',
+  },
+  list: {
+    width: '70%',
+    textAlign: 'center',
+  },
+  card: {
+    fontSize: '1em',
+    width: '100%%',
+    height: 'auto',
+    padding: '1em',
+    margin: '.5em',
+  },
+  ulType: {
+    listStyleType: 'none',
+  }
 };
 
 export {
-  appStyles,
+  styles,
   colorway,
 };

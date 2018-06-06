@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import { appStyles } from './styles/styles.js';
+import { styles } from './styles/styles.js';
+
+import PropTypes from 'prop-types';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 
 class App extends Component {
   constructor () {
@@ -31,8 +41,10 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const name = this.state.name;
+
     let updatedListOfNames = this.state.listOfNames;
-    updatedListOfNames.push(name);
+    updatedListOfNames.push({name, isStarred: false});
+
     this.setState({
       listOfNames : updatedListOfNames
     })
@@ -47,10 +59,11 @@ class App extends Component {
     console.log("gonna del: ", delName);
     //create an empty array
     let updatedListOfNames = [];
+    console.log("empty list: ", updatedListOfNames);
     //go thru current array
     for (let i = 0; i < this.state.listOfNames.length; i++ ) {
       //if name matches up, dont add
-      if (delName === this.state.listOfNames[i]){
+      if (delName === this.state.listOfNames[i].name){
         //skip over
       }
       //else push onto updatedListOfNames
@@ -66,36 +79,69 @@ class App extends Component {
 
   render() {
     const listOfNames = this.state.listOfNames;
-    const name = listOfNames.map((name, i) => (<li key={i}>{name}</li>));
+    const name = listOfNames.map((list, i) => (
+      <li key={i}>
+        {list.name}
+      </li>)
+      );
     return (
-      <div style={appStyles.app}>
+      <div style={styles.app}>
 
-        <p style={appStyles.appIntro}>
-          Welcome to my React App
-        </p>
+        <AppBar position="static" style={styles.appHeader} >
+          <Toolbar>
+            <Typography variant="title" color="inherit" >
+              <p style={styles.appTitle}>
+                Welcome to my React App
+              </p>
+            </Typography>
+          </Toolbar>
+        </AppBar>
 
-        <form onSubmit={this.handleSubmit.bind(this)} >
-          <label>
-            Name:
-            <input type="text" name="name" ref="text" onChange={this.handleChange.bind(this)} />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+        <div style={styles.main}>
 
-        <br />
+          <div style={styles.edit}>
 
-        <form onSubmit={this.handleDelete.bind(this)} >
-          <label>
-            Delete:
-            <input type="text" name="name" onChange={this.handleChangeDelName.bind(this)} ></input>
-          </label>
-          <input type="submit" value="submit" ></input>
-        </form>
+          <Card style={styles.card}>
+            <CardContent>
+              <form onSubmit={this.handleSubmit.bind(this)} >
+                <label>
+                  Name:
+                  <input type="text" name="name" ref="text" onChange={this.handleChange.bind(this)} />
+                </label>
+                <Button type="submit" value="submit">
+                  Add
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
 
-        <ul>
-          { (name) ? name : null}
-        </ul>
+          <Card style={styles.card}>
+            <CardContent>
+              <form onSubmit={this.handleDelete.bind(this)} >
+                <label>
+                  Delete:
+                  <input type="text" name="name" onChange={this.handleChangeDelName.bind(this)} ></input>
+                </label>
+                <Button type="submit" value="submit" >
+                  Delete
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
 
+        </div>
+
+          <div style={styles.list}>
+            <Card style={styles.card}>
+              <h1>
+                Your List
+              </h1>
+              <ul style={styles.ulType}>
+                { (name) ? name : null}
+              </ul>
+            </Card>
+          </div>
+        </div>
       </div>
     );
   }
