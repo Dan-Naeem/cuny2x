@@ -19,9 +19,6 @@ const styles = {
     backgroundColor: colorway.one,
     color: "white",
   },
-  appTitle: {
-    fontSize: "1.5em",
-  },
   main: {
     backgroundColor: colorway.background,
     width: '100%',
@@ -34,11 +31,17 @@ const styles = {
     width: '40%',
     height: 'auto',
     padding: '.5em',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   right: {
     width: '60%',
     height: 'auto',
     padding: '.5em',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   card: {
     backgroundColor: colorway.two,
@@ -47,13 +50,17 @@ const styles = {
     height: 'auto',
     padding: '.5em',
     margin: '.5em',
+    textAlign: 'center',
   },
   form: {
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
+
   },
   textField: {
     width: '100%',
+    padding: '.5em',
   },
 };
 

@@ -10,7 +10,6 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 
 //text fields
@@ -38,16 +37,48 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 
+//buttons
+import classNames from 'classnames';
+import Button from '@material-ui/core/Button';
+import Delete from '@material-ui/icons/Delete';
+import FileUpload from '@material-ui/icons/FileUpload';
+import KeyboardVoice from '@material-ui/icons/KeyboardVoice';
+import Icon from '@material-ui/core/Icon';
+import Save from '@material-ui/icons/Save';
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: ""
+      fname: "",
+      lname: "",
+      timeline: [],
     };
   }
-  handleChange() {
 
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
+
+  handleSubmit(event) {
+    event.preventDefault();
+    var card = [];
+
+    card.push(this.state.fname);
+
+
+    card.push(this.state.lname);
+
+    let updatedTime = this.state.timeline;
+    updatedTime.push(card);
+
+    this.setState({
+      timeline: updatedTime
+    })
   }
+
 
   render() {
     return (
@@ -65,18 +96,34 @@ class App extends Component {
 
           <div style={styles.left}>
             <Card style={styles.card}>
-              <FormControl style={styles.card}>
 
-                <Input style={styles.textField} id="name-simple" value={this.state.name} onChange={this.handleChange} />
-                <FormHelperText id="name-helper-text">Name</FormHelperText>
+              <CardHeader
+                title="Form"
+              />
 
-                <Input style={styles.textField} id="name-helper" value={this.state.name} onChange={this.handleChange} />
-                <FormHelperText id="name-helper-text">Some important helper text</FormHelperText>
+            <form onSubmit={this.handleSubmit.bind(this)}>
+                <TextField
+                  id="fname"
+                  label="First Name"
+                  value={this.state.name}
+                  onChange={this.handleChange('fname')}
+                  margin="normal"
+                  style={styles.textField}
+                />
 
-                <Input style={styles.textField} id="name-disabled" value={this.state.name} onChange={this.handleChange} />
-                <FormHelperText>Disabled</FormHelperText>
+                <TextField
+                  id="lname"
+                  label="Last Name"
+                  value={this.state.name}
+                  onChange={this.handleChange('lname')}
+                  margin="normal"
+                  style={styles.textField}
+                />
 
-              </FormControl>
+              <Button type="submit" value="upload">Upload</Button>
+
+              </form>
+
             </Card>
           </div>
 
