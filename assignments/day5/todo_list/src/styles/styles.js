@@ -1,9 +1,9 @@
 //default colorway
 const colorway = {
-  one: '#37474f',
-  two: '#d5dee2',
+  one: '#DAA44E',
+  two: '#FFF2AA',
   three: '',
-  background: '#56707c',
+  background: '#FECE83',
 };
 
 const styles = {
@@ -16,7 +16,7 @@ const styles = {
     boxSizing: 'border-box',
   },
   appHeader: {
-    backgroundColor: "blue",
+    backgroundColor: colorway.one,
     color: "white",
   },
   appTitle: {
@@ -39,6 +39,7 @@ const styles = {
     textAlign: 'center',
   },
   card: {
+    backgroundColor: colorway.two,
     fontSize: '1em',
     width: '100%%',
     height: 'auto',
