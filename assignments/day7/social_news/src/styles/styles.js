@@ -28,6 +28,7 @@ const styles = {
     flexDirection: 'row',
   },
   left: {
+    backgroundColor: colorway.background,
     width: '40%',
     height: 'auto',
     padding: '.5em',
@@ -36,12 +37,23 @@ const styles = {
     alignItems: 'center',
   },
   right: {
+    backgroundColor: colorway.background,
     width: '60%',
     height: 'auto',
     padding: '.5em',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+  },
+  ulType: {
+    listStyleType: 'none',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItem: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    padding: '0em',
+    margin: '0em',
   },
   card: {
     backgroundColor: colorway.two,
@@ -51,6 +63,7 @@ const styles = {
     padding: '.5em',
     margin: '.5em',
     textAlign: 'center',
+    overflow: 'auto',
   },
   form: {
     display: 'flex',

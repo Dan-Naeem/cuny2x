@@ -99,6 +99,40 @@ class App extends Component {
 
 
   render() {
+    const timeline = this.state.timeline;
+    const allEvents = timeline.map((item, i) => (
+      <Card key={i} style={styles.card}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="Recipe" >
+              R
+            </Avatar>
+          }
+          title={item[0]}
+          subheader={item[5]}
+        />
+        <CardMedia
+          image={item[1]}
+          title={item[4]}
+        />
+        <CardContent>
+          <Typography component="p" >
+            {item[2]}
+          </Typography>
+          <Typography component="p" >
+            {item[3]}
+          </Typography>
+        </CardContent>
+        <CardActions  disableActionSpacing>
+          <IconButton aria-label="Add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label="Share">
+            <ShareIcon />
+          </IconButton>
+        </CardActions>
+      </Card>
+    ));
     return (
       <div style={styles.app}>
 
@@ -182,41 +216,9 @@ class App extends Component {
           </div>
 
           <div style={styles.right}>
-            <Card style={styles.card}>
-              <CardHeader
-                avatar={
-                  <Avatar aria-label="Recipe" >
-                    R
-                  </Avatar>
-                }
-                action={
-                  <IconButton>
-                    <MoreVertIcon />
-                  </IconButton>
-                }
-                title="Shrimp and Chorizo Paella"
-                subheader="September 14, 2016"
-              />
-              <CardMedia
-
-                image="/static/images/cards/paella.jpg"
-                title="Contemplative Reptile"
-              />
-              <CardContent>
-                <Typography component="p">
-                  This impressive paella is a perfect party dish and a fun meal to cook together with
-                  your guests. Add 1 cup of frozen peas along with the mussels, if you like.
-                </Typography>
-              </CardContent>
-              <CardActions  disableActionSpacing>
-                <IconButton aria-label="Add to favorites">
-                  <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="Share">
-                  <ShareIcon />
-                </IconButton>
-              </CardActions>
-            </Card>
+              <ul style={styles.ulType}>
+                { (allEvents) ? allEvents : null}
+              </ul>
           </div>
         </div>
 
