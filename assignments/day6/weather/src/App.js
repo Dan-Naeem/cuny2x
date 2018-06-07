@@ -19,7 +19,7 @@ import WeatherDisplay from './components/WeatherDisplay';
 
 
 const PLACES = [
-  { name: "Palo Alto", zip: "94303" },
+  { name: "Bklyn", zip: "11218" },
   { name: "San Jose", zip: "94088" },
   { name: "Santa Cruz", zip: "95062" },
   { name: "Honolulu", zip: "96803" }
