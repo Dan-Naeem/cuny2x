@@ -52,7 +52,10 @@ class App extends Component {
     this.state = {
       title: "",
       photoURL: "",
+      caption: "",
       tags: "",
+      location: "",
+      date: "",
       timeline: [],
     };
   }
@@ -68,10 +71,22 @@ class App extends Component {
     var card = [];
 
     card.push(this.state.title);
+    console.log("title: ", this.state.title);
 
     card.push(this.state.photoURL);
+    console.log("photoURL: ", this.state.photoURL);
+
+    card.push(this.state.caption);
+    console.log("caption: ", this.state.caption);
 
     card.push(this.state.tags);
+    console.log("tags: ", this.state.tags);
+
+    card.push(this.state.location);
+    console.log("location: ", this.state.location);
+
+    card.push(this.state.date);
+    console.log("date: ", this.state.date);
 
     let updatedTime = this.state.timeline;
     updatedTime.push(card);
@@ -124,10 +139,37 @@ class App extends Component {
                 />
 
                 <TextField
+                  id="caption"
+                  label="Write a caption"
+                  value={this.state.caption}
+                  onChange={this.handleChange('caption')}
+                  margin="normal"
+                  style={styles.textField}
+                />
+
+                <TextField
                   id="tags"
                   label="Tags"
                   value={this.state.tags}
                   onChange={this.handleChange('tags')}
+                  margin="normal"
+                  style={styles.textField}
+                />
+
+                <TextField
+                  id="location"
+                  label="Add a location"
+                  value={this.state.location}
+                  onChange={this.handleChange('location')}
+                  margin="normal"
+                  style={styles.textField}
+                />
+
+                <TextField
+                  id="date"
+                  label="Date"
+                  value={this.state.date}
+                  onChange={this.handleChange('date')}
                   margin="normal"
                   style={styles.textField}
                 />
