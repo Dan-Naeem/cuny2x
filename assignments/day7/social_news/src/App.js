@@ -114,12 +114,13 @@ class App extends Component {
         <CardMedia
           image={item[1]}
           title={item[4]}
+          style={{height: 350, alignSelf: 'center',}}
         />
         <CardContent>
           <Typography component="p" >
             {item[2]}
           </Typography>
-          <Typography component="p" >
+          <Typography component="p">
             {item[3]}
           </Typography>
         </CardContent>
