@@ -62,15 +62,29 @@ const styles = {
     margin: '0em',
     overflow: 'none',
   },
-  card: {
+  formCard: {
+    border: '5px red solid',
     backgroundColor: colorway.two,
     fontSize: '1em',
     width: '100%',
-    height: 'auto',
+    height: '100%',
     minHeight: '300px',
     padding: '.5em',
     margin: '.5em',
     textAlign: 'center',
+  },
+  card: {
+    border: '5px yellow solid',
+    backgroundColor: colorway.two,
+    fontSize: '1em',
+    width: '100%',
+    height: 'auto',
+    minHeight: '550px',
+    padding: '.5em',
+    margin: '.5em',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    textAlign: 'left',
   },
   form: {
     display: 'flex',
@@ -81,6 +95,26 @@ const styles = {
   textField: {
     width: '100%',
     padding: '.5em',
+  },
+  description: {
+    border: '5px solid green',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  imgContainer: {
+    border: '5px solid orange',
+    width: '100%',
+    height: '300px',
+    minHeight: '300px',
+    maxHeight: '300px',
+    minHeight: '300px',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  img: {
+    width: '100%',
+    height: 'auto',
+    objectFit: 'cover',
   },
 };
 
