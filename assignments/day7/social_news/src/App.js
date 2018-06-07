@@ -50,15 +50,16 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      fname: "",
-      lname: "",
+      title: "",
+      photoURL: "",
+      tags: "",
       timeline: [],
     };
   }
 
-  handleChange = name => event => {
+  handleChange = title => event => {
     this.setState({
-      [name]: event.target.value,
+      [title]: event.target.value,
     });
   };
 
@@ -66,10 +67,11 @@ class App extends Component {
     event.preventDefault();
     var card = [];
 
-    card.push(this.state.fname);
+    card.push(this.state.title);
 
+    card.push(this.state.photoURL);
 
-    card.push(this.state.lname);
+    card.push(this.state.tags);
 
     let updatedTime = this.state.timeline;
     updatedTime.push(card);
@@ -77,6 +79,7 @@ class App extends Component {
     this.setState({
       timeline: updatedTime
     })
+    //console.log("handleSubmit timeline: ", this.timeline[0][0]);
   }
 
 
@@ -103,19 +106,28 @@ class App extends Component {
 
             <form onSubmit={this.handleSubmit.bind(this)}>
                 <TextField
-                  id="fname"
-                  label="First Name"
-                  value={this.state.name}
-                  onChange={this.handleChange('fname')}
+                  id="title"
+                  label="Title"
+                  value={this.state.title}
+                  onChange={this.handleChange('title')}
                   margin="normal"
                   style={styles.textField}
                 />
 
                 <TextField
-                  id="lname"
-                  label="Last Name"
-                  value={this.state.name}
-                  onChange={this.handleChange('lname')}
+                  id="photoURL"
+                  label="Photo URL"
+                  value={this.state.photoURL}
+                  onChange={this.handleChange('photoURL')}
+                  margin="normal"
+                  style={styles.textField}
+                />
+
+                <TextField
+                  id="tags"
+                  label="Tags"
+                  value={this.state.tags}
+                  onChange={this.handleChange('tags')}
                   margin="normal"
                   style={styles.textField}
                 />
