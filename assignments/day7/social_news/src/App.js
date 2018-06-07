@@ -104,26 +104,22 @@ class App extends Component {
       <Card key={i} style={styles.card}>
         <CardHeader
           avatar={
-            <Avatar aria-label="Recipe" >
-              R
-            </Avatar>
+            <div>
+              <h1>
+                {item[0]}
+              </h1>
+              <h5>{item[5]}</h5>
+            </div>
           }
-          title={item[0]}
-          subheader={item[5]}
         />
-        <CardMedia
-          image={item[1]}
-          title={item[4]}
-          style={{height: 350, alignSelf: 'center',}}
-        />
-        <CardContent>
-          <Typography component="p" >
-            {item[2]}
-          </Typography>
-          <Typography component="p">
-            {item[3]}
-          </Typography>
-        </CardContent>
+      <div style={styles.imgContainer}>
+          <img style={styles.img} src={item[1]} />
+        </div>
+        <div style={styles.description}>
+          <p>{item[2]}</p>
+          <p>{item[4]}</p>
+          <p>{item[3]}</p>
+        </div>
         <CardActions  disableActionSpacing>
           <IconButton aria-label="Add to favorites">
             <FavoriteIcon />
@@ -148,7 +144,7 @@ class App extends Component {
         <div style={styles.main}>
 
           <div style={styles.left}>
-            <Card style={styles.card}>
+            <Card style={styles.formCard}>
 
               <CardHeader
                 title="Form"
