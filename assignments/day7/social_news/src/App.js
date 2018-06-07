@@ -104,7 +104,7 @@ class App extends Component {
       <Card key={i} style={styles.card}>
         <CardHeader
           avatar={
-            <div>
+            <div style={styles.title}>
               <h1>
                 {item[0]}
               </h1>
