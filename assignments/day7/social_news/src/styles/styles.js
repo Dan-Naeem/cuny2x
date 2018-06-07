@@ -25,24 +25,16 @@ const styles = {
     padding: '.5em',
     display: 'flex',
     flexDirection: 'row',
+    justifyContent: 'center',
 
 
     height: '100%',
     minHeight: '100%',
     maxHeight: '100vh',
   },
-  left: {
-    backgroundColor: colorway.background,
-    width: '40%',
-    height: 'auto',
-    padding: '.5em',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
   right: {
     backgroundColor: colorway.background,
-    width: '60%',
+    width: '70%',
     height: 'auto',
     padding: '.5em',
     display: 'flex',
@@ -109,6 +101,9 @@ const styles = {
     width: '100%',
     height: 'auto',
     objectFit: 'cover',
+  },
+  uploadButton: {
+    width: '100%',
   },
 };
 
