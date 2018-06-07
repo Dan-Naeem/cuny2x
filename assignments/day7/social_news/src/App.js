@@ -46,6 +46,13 @@ import KeyboardVoice from '@material-ui/icons/KeyboardVoice';
 import Icon from '@material-ui/core/Icon';
 import Save from '@material-ui/icons/Save';
 
+//dialog
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
 class App extends Component {
   constructor() {
     super();
@@ -57,6 +64,7 @@ class App extends Component {
       location: "",
       date: "",
       timeline: [],
+      open: false,
     };
   }
 
@@ -92,10 +100,19 @@ class App extends Component {
     updatedTime.unshift(card);
 
     this.setState({
-      timeline: updatedTime
+      timeline: updatedTime,
+      open: false
     })
     //console.log("handleSubmit timeline: ", this.timeline[0][0]);
   }
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
 
 
   render() {
@@ -138,80 +155,89 @@ class App extends Component {
             <Typography variant="title" color="inherit" >
               News Feed
             </Typography>
+            <div style={styles.uploadButton}>
+              <Button onClick={this.handleClickOpen} style={{color:'white', float: 'right', justifyContent: 'end'}}>Add</Button>
+              <Dialog
+                open={this.state.open}
+                onClose={this.handleClose}
+                aria-labelledby="form-dialog-title"
+              >
+                <DialogContent>
+                  <Card style={styles.formCard}>
+
+                    <CardHeader
+                      title="Form"
+                    />
+
+                  <form onSubmit={this.handleSubmit.bind(this)}>
+                      <TextField
+                        id="title"
+                        label="Title"
+                        value={this.state.title}
+                        onChange={this.handleChange('title')}
+                        margin="normal"
+                        style={styles.textField}
+                      />
+
+                      <TextField
+                        id="photoURL"
+                        label="Photo URL"
+                        value={this.state.photoURL}
+                        onChange={this.handleChange('photoURL')}
+                        margin="normal"
+                        style={styles.textField}
+                      />
+
+                      <TextField
+                        id="caption"
+                        label="Write a caption"
+                        value={this.state.caption}
+                        onChange={this.handleChange('caption')}
+                        margin="normal"
+                        style={styles.textField}
+                      />
+
+                      <TextField
+                        id="tags"
+                        label="Tags"
+                        value={this.state.tags}
+                        onChange={this.handleChange('tags')}
+                        margin="normal"
+                        style={styles.textField}
+                      />
+
+                      <TextField
+                        id="location"
+                        label="Add a location"
+                        value={this.state.location}
+                        onChange={this.handleChange('location')}
+                        margin="normal"
+                        style={styles.textField}
+                      />
+
+                      <TextField
+                        id="date"
+                        label="Date"
+                        value={this.state.date}
+                        onChange={this.handleChange('date')}
+                        margin="normal"
+                        style={styles.textField}
+                      />
+
+                    <Button type="submit" value="upload">Upload</Button>
+
+                    </form>
+
+                  </Card>
+                </DialogContent>
+              </Dialog>
+            </div>
           </Toolbar>
         </AppBar>
 
+
+
         <div style={styles.main}>
-
-          <div style={styles.left}>
-            <Card style={styles.formCard}>
-
-              <CardHeader
-                title="Form"
-              />
-
-            <form onSubmit={this.handleSubmit.bind(this)}>
-                <TextField
-                  id="title"
-                  label="Title"
-                  value={this.state.title}
-                  onChange={this.handleChange('title')}
-                  margin="normal"
-                  style={styles.textField}
-                />
-
-                <TextField
-                  id="photoURL"
-                  label="Photo URL"
-                  value={this.state.photoURL}
-                  onChange={this.handleChange('photoURL')}
-                  margin="normal"
-                  style={styles.textField}
-                />
-
-                <TextField
-                  id="caption"
-                  label="Write a caption"
-                  value={this.state.caption}
-                  onChange={this.handleChange('caption')}
-                  margin="normal"
-                  style={styles.textField}
-                />
-
-                <TextField
-                  id="tags"
-                  label="Tags"
-                  value={this.state.tags}
-                  onChange={this.handleChange('tags')}
-                  margin="normal"
-                  style={styles.textField}
-                />
-
-                <TextField
-                  id="location"
-                  label="Add a location"
-                  value={this.state.location}
-                  onChange={this.handleChange('location')}
-                  margin="normal"
-                  style={styles.textField}
-                />
-
-                <TextField
-                  id="date"
-                  label="Date"
-                  value={this.state.date}
-                  onChange={this.handleChange('date')}
-                  margin="normal"
-                  style={styles.textField}
-                />
-
-              <Button type="submit" value="upload">Upload</Button>
-
-              </form>
-
-            </Card>
-          </div>
-
           <div style={styles.right}>
               <ul style={styles.ulType}>
                 { (allEvents) ? allEvents : null}
