@@ -13,7 +13,6 @@ const styles = {
     alignItems: 'center',
     padding: '.5em',
     fontSize: '1em',
-    boxSizing: 'border-box',
   },
   appHeader: {
     backgroundColor: colorway.one,
@@ -26,6 +25,11 @@ const styles = {
     padding: '.5em',
     display: 'flex',
     flexDirection: 'row',
+
+
+    height: '100%',
+    minHeight: '100%',
+    maxHeight: '100vh',
   },
   left: {
     backgroundColor: colorway.background,
@@ -44,26 +48,29 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'safe-center',
+    overflow: 'auto',
   },
   ulType: {
     listStyleType: 'none',
     display: 'flex',
     flexDirection: 'column',
-    alignItem: 'center',
-    justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'safe-center',
     width: '100%',
     padding: '0em',
     margin: '0em',
+    overflow: 'none',
   },
   card: {
     backgroundColor: colorway.two,
     fontSize: '1em',
     width: '100%',
     height: 'auto',
+    minHeight: '300px',
     padding: '.5em',
     margin: '.5em',
     textAlign: 'center',
-    overflow: 'auto',
   },
   form: {
     display: 'flex',
