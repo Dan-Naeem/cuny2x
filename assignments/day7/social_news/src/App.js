@@ -89,7 +89,7 @@ class App extends Component {
     console.log("date: ", this.state.date);
 
     let updatedTime = this.state.timeline;
-    updatedTime.push(card);
+    updatedTime.unshift(card);
 
     this.setState({
       timeline: updatedTime
