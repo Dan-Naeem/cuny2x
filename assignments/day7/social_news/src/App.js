@@ -134,7 +134,7 @@ class App extends Component {
       </Card>
     ));
     return (
-      <div style={styles.app}>
+      <div className="App" style={styles.app}>
 
         <AppBar position="static" style={styles.appHeader} >
           <Toolbar>

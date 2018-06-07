@@ -13,7 +13,6 @@ const styles = {
     alignItems: 'center',
     padding: '.5em',
     fontSize: '1em',
-    boxSizing: 'border-box',
   },
   appHeader: {
     backgroundColor: colorway.one,
@@ -26,6 +25,11 @@ const styles = {
     padding: '.5em',
     display: 'flex',
     flexDirection: 'row',
+
+
+    height: '100%',
+    minHeight: '100%',
+    maxHeight: '100vh',
   },
   left: {
     backgroundColor: colorway.background,
