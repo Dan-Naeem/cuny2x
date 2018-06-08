@@ -62,7 +62,7 @@ class App extends Component {
       caption: "",
       tags: "",
       location: "",
-      date: "",
+      date: new Date(),
       liked: false,
       timeline: [],
       open: false,
@@ -94,7 +94,10 @@ class App extends Component {
     card.push(this.state.location);
     console.log("location: ", this.state.location);
 
-    card.push(this.state.date);
+    let date = this.state.date;
+    date = date.toString();
+    date = date.slice(3, 24);
+    card.push(date);
     console.log("date: ", this.state.date);
 
     let updatedTime = this.state.timeline;
