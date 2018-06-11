@@ -1,0 +1,7 @@
+html
+  head
+  body
+    each val, index in data.groceries
+      h1= data.groceries[index].store
+      each item, i in data.groceries[index].list
+        li= data.groceries[index].list[i]
