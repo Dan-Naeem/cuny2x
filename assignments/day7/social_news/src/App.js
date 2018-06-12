@@ -62,7 +62,8 @@ class App extends Component {
       caption: "",
       tags: "",
       location: "",
-      date: "",
+      date: new Date(),
+      liked: false,
       timeline: [],
       open: false,
     };
@@ -93,7 +94,10 @@ class App extends Component {
     card.push(this.state.location);
     console.log("location: ", this.state.location);
 
-    card.push(this.state.date);
+    let date = this.state.date;
+    date = date.toString();
+    date = date.slice(3, 24);
+    card.push(date);
     console.log("date: ", this.state.date);
 
     let updatedTime = this.state.timeline;
@@ -114,9 +118,15 @@ class App extends Component {
     this.setState({ open: false });
   };
 
+  handleLike = () => {
+    this.setState({
+      liked: !this.state.liked
+    });
+  };
 
   render() {
     const timeline = this.state.timeline;
+    const label = this.state.liked ? 'Unlike' : 'Like'
     const allEvents = timeline.map((item, i) => (
       <Card key={i} style={styles.card}>
         <CardHeader
@@ -138,9 +148,9 @@ class App extends Component {
           <p>{item[3]}</p>
         </div>
         <CardActions  disableActionSpacing>
-          <IconButton aria-label="Add to favorites">
-            <FavoriteIcon />
-          </IconButton>
+          <button className="btn btn-primary" onClick={this.handleLike}>
+            {label}
+          </button>
           <IconButton aria-label="Share">
             <ShareIcon />
           </IconButton>
